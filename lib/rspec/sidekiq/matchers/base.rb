@@ -10,7 +10,7 @@ module RSpec
         end
 
         def matches?(options)
-          with_context(**options)
+          with_context(options)
         end
 
         private
@@ -20,7 +20,7 @@ module RSpec
           value == Time.at(job["at"]).to_i
         end
 
-        def with_context(**expected_context)
+        def with_context(expected_context)
           expected_context.all? do |key, value|
             if key == "at"
               # send to custom evaluator
