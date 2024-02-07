@@ -3,6 +3,8 @@ module RSpec
     module Matchers
       # @api private
       class EnqueueSidekiqJob < Base
+        include RSpec::Matchers::Composable
+
         attr_reader :original_jobs # Plus that from Base
 
         def initialize(job_class)
